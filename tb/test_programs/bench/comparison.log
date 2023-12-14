@@ -1,0 +1,42 @@
+Command: make sim BP=ALWAYS_NOT_TAKEN
+Total time spent: 812870
+MISS/ALL:  5255  /  5555
+Command: make sim BP=ALWAYS_TAKEN
+Total time spent: 710030
+MISS/ALL:  113  /  5555
+Command: make sim BP=BIT PR_BIT=1
+Total time spent: 711990
+MISS/ALL:  211  /  5555
+Command: make sim BP=BIT PR_BIT=2
+Total time spent: 710050
+MISS/ALL:  114  /  5555
+Command: make sim BP=LOCAL
+Total time spent: 710290
+MISS/ALL:  126  /  5555
+Command: make sim BP=GSHARE
+Total time spent: 710330
+MISS/ALL:  128  /  5555
+Command: make sim BP=TOURNAMENT_BIT
+Total time spent: 710230
+MISS/ALL:  123  /  5555
+Command: make sim BP=TOURNAMENT
+Total time spent: 710330
+MISS/ALL:  128  /  5555
+Command: make sim BP=BIT PR_BIT=1 BTB_BIT=2
+Total time spent: 712010
+MISS/ALL:  212  /  5555
+Command: make sim BP=BIT PR_BIT=2 BTB_BIT=2
+Total time spent: 710050
+MISS/ALL:  114  /  5555
+Command: make sim BP=LOCAL BTB_BIT=2
+Total time spent: 710270
+MISS/ALL:  125  /  5555
+Command: make sim BP=GSHARE BTB_BIT=2
+Total time spent: 710230
+MISS/ALL:  123  /  5555
+Command: make sim BP=TOURNAMENT_BIT BTB_BIT=2
+Total time spent: 710150
+MISS/ALL:  119  /  5555
+Command: make sim BP=TOURNAMENT BTB_BIT=2
+Total time spent: 710230
+MISS/ALL:  123  /  5555

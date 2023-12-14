@@ -1,0 +1,293 @@
+% this package is designed by: thanhhungqb@gmail.com
+% more infor mation and update: 
+%   https://github.com/thanhhungqb/thesis-template
+%
+% this package also use code from: 
+%	http://tex.stackexchange.com/questions/51483/how-to-write-abstract-and-acknowledgement-in-book-format
+% thank for Fredrik M. Kirkemo to gave a useful code
+
+\ProvidesPackage{bkthesis}
+
+\usepackage[utf8]{inputenc}
+% \usepackage[T1]{fontenc}
+\usepackage[vietnamese,main=english]{babel}
+
+\RequirePackage{graphicx}
+%\RequirePackage{vietnam}
+\RequirePackage{geometry}
+
+\usepackage[super]{nth}
+\usepackage{titlesec}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+%\usepackage{indentfirst}
+\usepackage{parskip}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{copyrightbox}
+\usepackage{url}
+\usepackage{subfig}
+\usepackage[newfloat]{minted}
+\usepackage{verbatimbox,caption,float,lipsum}
+\usepackage{lscape}
+\usepackage{fancyhdr}
+\usepackage{listings}
+
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+
+\usepackage{changepage}
+
+\usepackage[font=small]{caption}
+
+\usepackage{chngcntr}
+\counterwithin*{chapter}{part}
+% \counterwithin{figure}{part}
+% \counterwithin{table}{part}
+% \counterwithin{listing}{part}
+
+\setcounter{secnumdepth}{6}
+
+\usepackage[absolute]{textpos}
+
+\usepackage{longtable}  % For creating multi-page tables
+\usepackage{array}      % For customizing column widths and alignments
+\usepackage{multirow}   % For merging cells in rows
+\usepackage{booktabs}   % For creating professional-looking tables
+
+\usepackage{enumitem}
+\setlist[itemize]{noitemsep}
+
+\usepackage{etoolbox}
+% \patchcmd{\chapter}{\clearpage}{\par}{}{}
+% \patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
+
+% \usepackage[style=ext-numeric, backend=biber, alldates=terse,]{biblatex}
+\usepackage[style=ext-numeric, backend=biber]{biblatex}
+
+\usepackage{pdflscape}
+
+%\setlength{\textfloatsep}{1pt }
+%\setlength{\abovecaptionskip}{0pt} 
+\setlength{\belowcaptionskip}{-10pt} 
+
+\usepackage{geometry}
+\def\thesislayout{	% A4: 210 × 297
+	\geometry{
+		a4paper,
+%		total={160mm,247mm},  % fix over page
+		left=30mm,
+		top=25mm,
+		right=20mm,
+		bottom=25mm
+	}
+}
+
+\addto{\captionsenglish}{%
+  \renewcommand{\bibname}{References}
+}
+
+\renewcommand{\CRB@setcopyrightfont}{%
+\scriptsize
+\color{black}}
+
+\titleformat{\chapter}[display]
+  {\large\bfseries}
+  {}
+  {0cm}
+  {\thechapter.\ }
+  
+\titleformat{name=\chapter, numberless}[display]
+  {\large\bfseries}
+  {}
+  {0cm}
+  {\ }
+
+\titleclass{\subsubparagraph}{straight}[\subparagraph]
+\newcounter{subsubparagraph}
+\renewcommand{\thesubsubparagraph}{\alph{subsubparagraph}.}
+
+% minted
+\setminted{fontsize=\fontsize{11pt}{11pt}, frame=single, linenos, xleftmargin=20pt, breaklines}
+\setmintedinline{fontsize=\fontsize{13pt}{13pt}}
+\renewcommand\theFancyVerbLine{\normalsize\arabic{FancyVerbLine}}
+
+\newenvironment{code}{\captionsetup{type=listing}}{}
+\SetupFloatingEnvironment{listing}{name=Code}
+\renewcommand\lstlistingname{Code}
+\renewcommand\lstlistlistingname{List of Codes}
+
+%\renewcommand{\thechapter}{\Roman{chapter}}
+%\renewcommand{\thesection}{\arabic{section}}
+
+\titlespacing*{\chapter}{0pt}{-50pt}{0pt}
+% \titlespacing*{\section}{0pt}{0pt}{0pt}
+% \titlespacing*{\subsection}{0pt}{0pt}{0pt}
+% \titlespacing*{\subsubsection}{0pt}{0pt}{0pt}
+% \titlespacing*{\paragraph}{0pt}{0pt}{0pt}
+% \titlespacing*{\subparagraph}{0pt}{0pt}{0pt}
+% \titlespacing*{\subsubparagraph}{0pt}{0pt}{0pt}
+
+\titleclass{\part}{top}
+\titleformat{\part}
+  {\normalfont\Large\selectfont\bfseries}{\thepart.}{1em}{}
+\titlespacing*{\part}{0pt}{-25pt}{27.5pt}
+  
+\titleformat{\section}
+  {\normalfont\fontsize{13}{15.6}\selectfont\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\fontsize{13}{15.6}\selectfont\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\fontsize{13}{15.6}\selectfont\bfseries}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}
+{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+\titleformat{\subsubparagraph}
+{\normalfont\normalsize\bfseries}{\thesubsubparagraph}{1em}{}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\newcommand{\@sdeptname}{FACULTY OF ELECTRICAL AND ELECTRONICS ENGINEERING}
+\newcommand{\csdeptname}[1]{\renewcommand{\@sdeptname}{#1}}
+
+\newcommand{\@tname}{}
+\newcommand{\ctname}[1]{\renewcommand{\@tname}{#1}}
+
+\newcommand{\@stuname}{}
+\newcommand{\cstuname}[1]{\renewcommand{\@stuname}{#1}}
+
+\newcommand{\@sSubtitle}{}
+\newcommand{\subtitle}[1]{\renewcommand{\@sSubtitle}{#1}}
+
+\newcommand{\@sCouncil}{}
+\newcommand{\csCouncil}[1]{\renewcommand{\@sCouncil}{#1}}
+
+\newcommand{\@sReviewer}{}
+\newcommand{\csReviewer}[1]{\renewcommand{\@sReviewer}{#1}}
+	
+\newcommand{\@sSupervise}{}
+\newcommand{\csSupervise}[1]{\renewcommand{\@sSupervise}{#1}}
+	
+\newcommand{\@sSubject}{}
+\newcommand{\csSubject}[1]{\renewcommand{\@sSubject}{#1}}
+
+\newcommand{\@ttime}{\today}
+\newcommand{\cttime}[1]{\renewcommand{\@ttime}{#1}}
+
+\newcommand{\@rname}{} % report name, luận văn, thực tập...
+\newcommand{\crname}[1]{\renewcommand{\@rname}{#1}}
+
+\newsavebox\thesmashminipage
+\newenvironment{smashminipage}
+  {\begin{lrbox}{\thesmashminipage}\begin{minipage}[t]{\textwidth}}
+  {\end{minipage}\end{lrbox}\smash{\usebox{\thesmashminipage}}\clearpage}
+
+\fancypagestyle{plain}{%
+\fancyhead{}  % Clears all page headers and footers
+\rhead{Instructor: \begin{otherlanguage}{vietnamese}Dr. Trần Hoàng Linh\end{otherlanguage}}  % Sets the right side header to show the page number
+\lhead{\@sSubtitle}  % Clears the left side page header
+% \fancyfoot[positions]{footer}
+% \renewcommand{\footrulewidth}{0.4pt}
+}
+
+\fancypagestyle{fancy}{%
+\fancyhead{}  % Clears all page headers and footers
+\rhead{Instructor: \begin{otherlanguage}{vietnamese}Dr. Trần Hoàng Linh\end{otherlanguage}}  % Sets the right side header to show the page number
+\lhead{\@sSubtitle}  % Clears the left side page header
+% \fancyfoot[positions]{footer}
+% \renewcommand{\footrulewidth}{0.4pt}
+}
+  
+\def\coverpage{
+
+\pagestyle{empty}
+% \setlength{\oddsidemargin}{0cm}
+% \addtolength{\voffset}{-2.5cm}
+% \addtolength{\textwidth}{-2cm}
+
+\begin{smashminipage} %[b][25.5cm][t]{15cm}
+\begin{tikzpicture}[remember picture, overlay]
+%   \draw[line width = 4pt] ($(current page.north west) + (1in,-1in)$) rectangle ($(current page.south east) + (-1in,1in)$);
+% \draw [line width=1pt]
+%     ($ (current page.north west) + (3.0cm,-2.0cm) $)
+%     rectangle
+%     ($ (current page.south east) + (-1.5cm,1.5cm) $);
+
+\draw [line width=1pt]
+    ($ (current page.north west) + (3.15cm,-2.15cm) $)
+    rectangle
+    ($ (current page.south east) + (-1.65cm,1.65cm) $); 
+\end{tikzpicture}
+
+\begin{adjustwidth}{13.5pt}{0pt} % Indentation
+\begin{center}
+\large
+VIETNAM NATIONAL UNIVERSITY HO CHI MINH CITY \\
+HO CHI MINH CITY UNIVERSITY OF TECHNOLOGY \\
+DEPARTMENT OF ELECTRONICS \\
+\textbf{--------------------  $\ast$  ---------------------}\\[1.5cm]
+\includegraphics[scale=0.1]{logobk.png}\\[1.5cm]
+{\fontsize{19pt}{1}\bfseries \selectfont \@title}\\[0.2cm]
+{\fontsize{21pt}{1}\bfseries\selectfont \@sSubtitle}\\[3cm]
+\begin{otherlanguage}{vietnamese}
+\begin{tabbing}
+	\hspace{2.5cm}Instructor\ \ \ \ \=: \ \textbf{\parbox[t]{9cm}{\@sSupervise}}\\
+	\hspace{2.5cm}TA \>: \ \textbf{\parbox[t]{9cm}{M.S. Cao Xuân Hải}}\\
+	\hspace{2.5cm}Subject \>: \ \textbf{\parbox[t]{12cm}{\@sSubject}}\\
+	\hspace{2.5cm}Group \>: \ \textbf{\parbox[t]{9cm}{02}}\\
+	\hspace{2.5cm}Members \>: \ \textbf{\parbox[t]{9cm}{Lương Triển Thắng\hspace{0.1cm} - 2051194}}\\
+	\> \ \ \ \textbf{\parbox[t]{9cm}{Đinh Hoàng Luân\hspace{0.43cm} - 2051145}}\\
+	\> \ \ \ \textbf{\parbox[t]{9cm}{Nguyễn Nhật Nam\hspace{0.16cm} - 2051153}}\\
+\end{tabbing}
+\end{otherlanguage}
+
+\vspace{4cm}
+Ho Chi Minh City, \@ttime
+
+\end{center}
+\end{adjustwidth}
+
+\end{smashminipage}
+}
+% }
+
+\def\makeprintversion{}
+
+%% Remember to load babel before loading this package or define the command \abstractname!
+% \makeatletter
+% \newenvironment{abstract}{
+%   \titlepage
+%   \null\vfil
+%   \@beginparpenalty\@lowpenalty
+%   \begin{center}
+% 	\bfseries Abstract
+% 	\@endparpenalty\@M
+%   \end{center}}
+%  {\par\vfil\null\endtitlepage}
+% \makeatother
+
+\makeatletter
+\newenvironment{acknowledgments}{
+	\begin{center}
+	  {\large\bfseries ACKNOWLEDGEMENTS\vspace{\z@}}
+	\end{center}
+  }{}
+\makeatother
+
+% Declaration
+\makeatletter
+\newenvironment{declaration}{
+	\small
+	\begin{center}
+%	  {\bfseries Lời cam đoan\vspace{-.5em}\vspace{\z@}}
+	\end{center}
+	\quotation
+  }{}
+\makeatother	  
+
+% \renewcommand\lstlistingname{Algorithm}
+% \renewcommand\lstlistlistingname{Algorithms}

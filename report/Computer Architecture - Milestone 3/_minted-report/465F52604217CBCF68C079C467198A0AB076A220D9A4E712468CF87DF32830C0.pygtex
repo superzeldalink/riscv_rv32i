@@ -1,0 +1,28 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{n+no}{`ifdef}\PYG{+w}{ }\PYG{n}{SIMULATION}
+\PYG{k}{module}\PYG{+w}{ }\PYG{n}{romA\PYGZus{}128x128}\PYG{p}{\PYGZdl{}}\PYG{+w}{ }\PYG{p}{(}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{13}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{address\PYGZus{}a}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{13}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{address\PYGZus{}b}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{input}\PYG{+w}{ }\PYG{n}{clock}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{reg}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{q\PYGZus{}a}\PYG{p}{,}
+\PYG{+w}{    }\PYG{k}{output}\PYG{+w}{ }\PYG{k+kt}{reg}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{q\PYGZus{}b}
+\PYG{p}{);}
+
+\PYG{k+kt}{reg}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{7}\PYG{o}{:}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{+w}{ }\PYG{n}{rom\PYGZus{}data}\PYG{+w}{ }\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{o}{:}\PYG{l+m+mi}{16383}\PYG{p}{];}\PYG{+w}{ }\PYG{c+c1}{// 128*128 ROM, 16K 8\PYGZhy{}bit words}
+
+\PYG{k}{initial}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{    }\PYG{p}{\PYGZdl{}}\PYG{n}{readmemh}\PYG{p}{(}\PYG{l+s}{\PYGZdq{}matA.hex\PYGZdq{}}\PYG{p}{,}\PYG{+w}{ }\PYG{n}{rom\PYGZus{}data}\PYG{p}{);}
+\PYG{k}{end}
+
+\PYG{k}{always}\PYG{+w}{ }\PYG{p}{@(}\PYG{k}{posedge}\PYG{+w}{ }\PYG{n}{clock}\PYG{p}{)}\PYG{+w}{ }\PYG{k}{begin}
+\PYG{+w}{    }\PYG{c+c1}{// Read from Port A}
+\PYG{+w}{    }\PYG{n}{q\PYGZus{}a}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{rom\PYGZus{}data}\PYG{p}{[}\PYG{n}{address\PYGZus{}a}\PYG{p}{];}
+
+\PYG{+w}{    }\PYG{c+c1}{// Read from Port B}
+\PYG{+w}{    }\PYG{n}{q\PYGZus{}b}\PYG{+w}{ }\PYG{o}{\PYGZlt{}=}\PYG{+w}{ }\PYG{n}{rom\PYGZus{}data}\PYG{p}{[}\PYG{n}{address\PYGZus{}b}\PYG{p}{];}
+\PYG{k}{end}
+\PYG{k}{endmodule}
+\PYG{n+no}{`else}
+\PYG{c+c1}{// Altera RAM/ROM}
+\PYG{n+no}{`endif}
+\end{Verbatim}

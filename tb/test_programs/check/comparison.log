@@ -1,0 +1,80 @@
+Command: make sim BP=ALWAYS_NOT_TAKEN
+::0::[1;32mPASSED[0m:: Diagnosis      ::      181 ::   0.000 s
+::1::[1;32mPASSED[0m:: Fibonacci      ::    51036 ::   0.190 s
+::2::[1;32mPASSED[0m:: Factorial      ::    89331 ::   1.282 s
+::3::[1;32mPASSED[0m:: GCD            ::      839 ::   0.001 s
+::4::[1;32mPASSED[0m:: Tower of Hanoi ::    55959 ::   0.149 s
+::5::[1;32mPASSED[0m:: Binary Search  ::     5324 ::   0.529 s
+  (1) Clock 27 MHz:      7.678 ms
+  (2) Clock 50 MHz:      4.146 ms
+MISS/ALL:  7753  /  10967
+Command: make sim BP=ALWAYS_TAKEN
+::0::[1;32mPASSED[0m:: Diagnosis      ::      181 ::   0.000 s
+::1::[1;32mPASSED[0m:: Fibonacci      ::    51034 ::   0.189 s
+::2::[1;32mPASSED[0m:: Factorial      ::    77495 ::   1.418 s
+::3::[1;32mPASSED[0m:: GCD            ::      781 ::   0.001 s
+::4::[1;32mPASSED[0m:: Tower of Hanoi ::    56989 ::   0.143 s
+::5::[1;32mPASSED[0m:: Binary Search  ::     5028 ::   0.014 s
+  (1) Clock 27 MHz:      7.338 ms
+  (2) Clock 50 MHz:      3.963 ms
+MISS/ALL:  3169  /  10967
+Command: make sim BP=BIT PR_BIT=1
+::0::[1;32mPASSED[0m:: Diagnosis      ::      181 ::   0.000 s
+::1::[1;32mPASSED[0m:: Fibonacci      ::    50566 ::   0.190 s
+::2::[1;32mPASSED[0m:: Factorial      ::    77503 ::   1.301 s
+::3::[1;32mPASSED[0m:: GCD            ::      787 ::   0.002 s
+::4::[1;32mPASSED[0m:: Tower of Hanoi ::    55961 ::   0.150 s
+::5::[1;32mPASSED[0m:: Binary Search  ::     5096 ::   0.013 s
+  (1) Clock 27 MHz:      7.216 ms
+  (2) Clock 50 MHz:      3.897 ms
+MISS/ALL:  1518  /  10967
+Command: make sim BP=BIT PR_BIT=2
+::0::[1;32mPASSED[0m:: Diagnosis      ::      181 ::   0.000 s
+::1::[1;32mPASSED[0m:: Fibonacci      ::    51032 ::   0.196 s
+::2::[1;32mPASSED[0m:: Factorial      ::    77497 ::   1.245 s
+::3::[1;32mPASSED[0m:: GCD            ::      783 ::   0.002 s
+::4::[1;32mPASSED[0m:: Tower of Hanoi ::    56087 ::   0.142 s
+::5::[1;32mPASSED[0m:: Binary Search  ::     5020 ::   0.013 s
+  (1) Clock 27 MHz:      7.231 ms
+  (2) Clock 50 MHz:      3.905 ms
+MISS/ALL:  1718  /  10967
+Command: make sim BP=LOCAL
+::0::[1;32mPASSED[0m:: Diagnosis      ::      181 ::   0.000 s
+::1::[1;32mPASSED[0m:: Fibonacci      ::    50004 ::   0.191 s
+::2::[1;32mPASSED[0m:: Factorial      ::    77523 ::   1.285 s
+::3::[1;32mPASSED[0m:: GCD            ::      789 ::   0.002 s
+::4::[1;32mPASSED[0m:: Tower of Hanoi ::    55471 ::   0.158 s
+::5::[1;32mPASSED[0m:: Binary Search  ::     5032 ::   0.014 s
+  (1) Clock 27 MHz:      7.172 ms
+  (2) Clock 50 MHz:      3.873 ms
+MISS/ALL:  918  /  10967
+Command: make sim BP=GSHARE
+::0::[1;32mPASSED[0m:: Diagnosis      ::      181 ::   0.000 s
+::1::[1;32mPASSED[0m:: Fibonacci      ::    49844 ::   0.194 s
+::2::[1;32mPASSED[0m:: Factorial      ::    77519 ::   1.308 s
+::3::[1;32mPASSED[0m:: GCD            ::      793 ::   0.002 s
+::4::[1;32mPASSED[0m:: Tower of Hanoi ::    55481 ::   0.147 s
+::5::[1;32mPASSED[0m:: Binary Search  ::     5028 ::   0.013 s
+  (1) Clock 27 MHz:      7.166 ms
+  (2) Clock 50 MHz:      3.870 ms
+MISS/ALL:  841  /  10967
+Command: make sim BP=TOURNAMENT_BIT
+::0::[1;32mPASSED[0m:: Diagnosis      ::      181 ::   0.000 s
+::1::[1;32mPASSED[0m:: Fibonacci      ::    49846 ::   0.202 s
+::2::[1;32mPASSED[0m:: Factorial      ::    77515 ::   1.328 s
+::3::[1;32mPASSED[0m:: GCD            ::      791 ::   0.002 s
+::4::[1;32mPASSED[0m:: Tower of Hanoi ::    55849 ::   0.161 s
+::5::[1;32mPASSED[0m:: Binary Search  ::     5022 ::   0.511 s
+  (1) Clock 27 MHz:      7.179 ms
+  (2) Clock 50 MHz:      3.877 ms
+MISS/ALL:  1020  /  10967
+Command: make sim BP=TOURNAMENT
+::0::[1;32mPASSED[0m:: Diagnosis      ::      181 ::   0.000 s
+::1::[1;32mPASSED[0m:: Fibonacci      ::    49920 ::   0.148 s
+::2::[1;32mPASSED[0m:: Factorial      ::    77531 ::   1.359 s
+::3::[1;32mPASSED[0m:: GCD            ::      789 ::   0.002 s
+::4::[1;32mPASSED[0m:: Tower of Hanoi ::    55479 ::   0.157 s
+::5::[1;32mPASSED[0m:: Binary Search  ::     5028 ::   0.488 s
+  (1) Clock 27 MHz:      7.169 ms
+  (2) Clock 50 MHz:      3.871 ms
+MISS/ALL:  882  /  10967

@@ -1,0 +1,80 @@
+\babel@toc {english}{}\relax 
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Multiply -- Accumulator (MAC)\relax }}{4}{figure.caption.3}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Modified Multiply -- Accumulator\relax }}{4}{figure.caption.4}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Two-Port ROM\relax }}{5}{figure.caption.5}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {2.4}{\ignorespaces High Fan-Out Issue\relax }}{8}{figure.caption.6}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces High Fan-Out Fixed with buffer registers\relax }}{8}{figure.caption.7}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces RAM Controller Block Diagram\relax }}{9}{figure.caption.8}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces MatMul Block Diagram\relax }}{10}{figure.caption.9}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces RAM \texttt {C} Block Diagram\relax }}{10}{figure.caption.10}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Accumulator Block Block Diagram\relax }}{11}{figure.caption.11}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Adder Tree Block Diagram\relax }}{12}{figure.caption.12}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Main Module Block Diagram\relax }}{13}{figure.caption.13}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {3.7}{\ignorespaces ChipInterface Block Diagram\relax }}{15}{figure.caption.14}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Resources Usage\relax }}{16}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces $F_{max}$ result for Slow 1100mV 85C Model\relax }}{16}{figure.caption.16}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Simulation Result using QuestaSim for \texttt {mat1}\relax }}{17}{figure.caption.17}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Simulation Result using Synopsys VCS for \texttt {mat1}\relax }}{17}{figure.caption.18}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Hardware Result for \texttt {mat1}\relax }}{18}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Hardware Result for total cycles used when switching \texttt {SW0} to high\relax }}{18}{figure.caption.20}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Hardware Result when holding the \texttt {KEY0} (reset)\relax }}{19}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Simulation Result using Synopsys VCS for \texttt {mat2}\relax }}{19}{figure.caption.22}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Hardware Result for \texttt {mat2}\relax }}{20}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Output of the Python script\relax }}{20}{figure.caption.24}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Simulation Result using Synopsys VCS for \texttt {mat3}\relax }}{20}{figure.caption.25}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Hardware Result for \texttt {mat3}\relax }}{21}{figure.caption.26}%
+\babel@toc {vietnamese}{}\relax 
+\babel@toc {english}{}\relax 
+\addvspace {10\p@ }
