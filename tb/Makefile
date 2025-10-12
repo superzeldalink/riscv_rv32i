@@ -4,13 +4,6 @@ PR_BIT ?= 2
 BTB_BIT ?= 1
 VER ?= pipelined
 
-# List all Verilog and SystemVerilog files in the directory
-ALL_FILES := $(wildcard *.sv) $(wildcard *.v) $(wildcard ../src/$(VER).sv) $(wildcard ../src/$(VER)/*.sv) $(wildcard ../src/common/*.sv) $(wildcard ../src/$(VER)/stages/*.sv) $(wildcard ../src/$(VER)/regs/*.sv) $(wildcard ../src/$(VER)/predictor/*.sv)
-
-# Exclude specific file(s) from the list
-EXCLUDE_FILES := tb.sv
-FILES := $(filter-out $(EXCLUDE_FILES), $(ALL_FILES))
-
 VERILATOR = verilator
 VERILATOR_COV = verilator_coverage
 
@@ -39,12 +32,12 @@ VERILATOR_FLAGS += --trace-fst
 VERILATOR_FLAGS += --build -j
 VERILATOR_FLAGS += -Wno-WIDTHTRUNC
 VERILATOR_FLAGS += -DSIMULATION
-VERILATOR_FLAGS += -D$(BP)
-VERILATOR_FLAGS += -Dpredict_bit=$(PR_BIT)
-VERILATOR_FLAGS += -Dbtb_bit=$(BTB_BIT)
+
+# Output filelist
+FILELIST := -f ../src/filelist.f -f ../src/filelist_$(VER).f
 
 # Input files for Verilator
-VERILATOR_INPUT = $(FILES) --top-module $(VER)
+VERILATOR_INPUT = $(FILELIST) --top-module $(VER)
 
 .PHONY: cp
 cp:
@@ -60,6 +53,7 @@ lint:
 	@$(VERILATOR) $(LINT_FLAGS) $(FILES)
 
 prep_tb:
+	@sed -i 's/single_cycle/$(VER)/g' tb.cpp
 	@sed -i 's/pipelined/$(VER)/g' tb.cpp
 
 .PHONY: build

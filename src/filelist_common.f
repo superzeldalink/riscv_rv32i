@@ -1,0 +1,10 @@
+${RV32I_HOME}/src/common/SevenSegmentControl.sv
+${RV32I_HOME}/src/common/alu.sv
+${RV32I_HOME}/src/common/bin2bcd.sv
+${RV32I_HOME}/src/common/brcomp.sv
+${RV32I_HOME}/src/common/custom_components.sv
+${RV32I_HOME}/src/common/immgen.sv
+${RV32I_HOME}/src/common/inst_mem.sv
+${RV32I_HOME}/src/common/lsu.sv
+${RV32I_HOME}/src/common/output_peripherals.sv
+${RV32I_HOME}/src/common/timer.sv

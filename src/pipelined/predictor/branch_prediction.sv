@@ -50,6 +50,8 @@ module branch_prediction (
 
 `ifdef ALWAYS_NOT_TAKEN
   assign predict_taken = 1'b0;
+  assign used = 1'b0;
+  assign predicted_tag = '0;
 `elsif ALWAYS_TAKEN
   assign predict_taken = 1'b1;
 `elsif GSHARE
@@ -99,6 +101,7 @@ module branch_prediction (
 `ifndef ALWAYS_NOT_TAKEN
   btb btb (
     .clk      (clk                  ),
+    .reset_n  (reset_n              ),
     .addr_rd_i(table_addr           ),
     .addr_wr_i(table_addr_EX        ),
     .pc_i     (br_PC                ),

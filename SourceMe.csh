@@ -1,0 +1,1 @@
+export RV32I_HOME=`pwd`

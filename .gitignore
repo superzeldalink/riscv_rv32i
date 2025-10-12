@@ -1,1 +1,11 @@
 **/.DS_Store
+csrc/
+simv.daidir/
+novas*
+ucli*
+simv
+wave*
+verdiLog/
+tb_verilator/
+core
+obj_dir/

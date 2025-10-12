@@ -8,6 +8,7 @@ module timer #(parameter
   input                    enable , // timer enable
   input  [ TIMER_BITS-1:0] init   , // timer start value,
   input  [SCALER_BITS-1:0] ps     , // pre-scale factor
+  output [ TIMER_BITS-1:0] value  , // value
   output                   done     // tick event raised when timer reaches zero
 );
 
@@ -34,19 +35,22 @@ module timer #(parameter
         counter <= counterNext;
         scaler  <= scalerNext;
       end else begin
-        counter <= counter;
-        scaler  <= scaler;
+        counter <= init;
+        scaler  <= '0;
       end
     end
   end
 
 // compute the next scaler value
-  assign scalerNext = (scaler == (('d1 << ps) - 'd1) || (counter == 0)) ? 0 : scaler + 'd1;
+  assign scalerNext = (scaler == (('d1 << ps) - 'd1) || (counter == '0)) ? '0 : scaler + 'd1;
 
 // compute the next counter value
-  assign counterNext = (counter == 0) ? 0 : (scalerNext == 0) ? counter - 1 : counter;
+  assign counterNext = (counter == '0) ? '0 : (scalerNext == '0) ? counter - 'd1 : counter;
 
 // raise tick when counter reaches 0
-  assign done = counter == 0;
+  assign done = counter == '0;
+
+// counter value
+  assign value = counter;
 
 endmodule

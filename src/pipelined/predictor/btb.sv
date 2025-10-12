@@ -1,5 +1,6 @@
 module btb (
   input         clk      ,
+  input         reset_n  ,
   input  [ 9:0] addr_rd_i, addr_wr_i,
   input  [31:0] pc_i     ,
   input  [19:0] tag_i    ,
@@ -14,9 +15,15 @@ module btb (
   wire [29:0] pc          ;
   assign pc_o = {pc, 2'd0};
 
-  always_ff @(posedge clk) begin
-    if(enable) begin
-      buffer[addr_wr_i] <= {1'b1, tag_i, pc_i[31:2]};
+  always_ff @(posedge clk or negedge reset_n) begin
+    if(~reset_n) begin
+      for(int i = 0; i < 1024; i+=1) begin
+        buffer[i] <= '0;
+      end
+    end begin
+      if(enable) begin
+        buffer[addr_wr_i] <= {1'b1, tag_i, pc_i[31:2]};
+      end
     end
   end
 

@@ -11,7 +11,7 @@ module custom_components (
   localparam BCD_IN_WIDTH  = 16                                           ;
   localparam BCD_OUT_WIDTH = `min(BCD_IN_WIDTH+(BCD_IN_WIDTH-4)/3 + 1, 32);
 
-  localparam TIMER_BITS  = 30;
+  localparam TIMER_BITS  = 32;
   localparam SCALER_BITS = 4 ;
 
 /* verilator lint_off UNUSEDSIGNAL */
@@ -21,20 +21,22 @@ module custom_components (
   reg  [ SCALER_BITS-1:0] timer_prescaler;
   reg                     timer_enable   ;
   wire                    timer_done     ;
+  reg  [  TIMER_BITS-1:0] timer_val      ;
   reg  [BCD_IN_WIDTH-1:0] bcd_i          ;
 
   bin2bcd #(BCD_IN_WIDTH) u_bin2bcd (
     .in (bcd_i),
     .bcd(bcd_o)
   );
-
-  timer_wrapper timer (
-    .clk        (clk            ),
-    .reset_n    (reset_n        ),
-    .start_i    (timer_start    ),
-    .prescaler_i(timer_prescaler),
-    .enable_i   (timer_enable   ),
-    .done       (timer_done     )
+  
+  timer #(TIMER_BITS,SCALER_BITS) timer (
+    .clk    (clk                             ),
+    .reset_n(reset_n                         ), // async reset
+    .enable (timer_enable                    ), // timer enable
+    .init   (timer_start[TIMER_BITS-1:0]     ), // timer start value,
+    .ps     (timer_prescaler[SCALER_BITS-1:0]), // pre-scale factor
+    .value  (timer_val[TIMER_BITS-1:0]       ), // timer value
+    .done   (timer_done                      )  // tick event raised when timer reaches zero
   );
 
   always_ff @(posedge clk or negedge reset_n) begin
@@ -69,6 +71,7 @@ module custom_components (
       8'h14   : data_o = {{(32 - SCALER_BITS){1'd0}}, timer_prescaler};
       8'h18   : data_o = {31'd0, timer_enable};
       8'h1C   : data_o = {31'd0, timer_done};
+      8'h20   : data_o = {{(32 - TIMER_BITS){1'd0}}, timer_val};
       default : data_o = 32'd0;
     endcase
   end

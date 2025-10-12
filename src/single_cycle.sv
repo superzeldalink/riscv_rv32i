@@ -1,4 +1,4 @@
-`include "params.vh"
+// `include "params.vh"
 
 module single_cycle (
   input         clk_i, rst_ni,

@@ -1,4 +1,4 @@
-`include "params.vh"
+// `include "params.vh"
 
 module pipelined (
   input         clk_i, rst_ni,
@@ -10,11 +10,11 @@ module pipelined (
   output [31:0] PC_debug
 );
 
-assign PC_debug = PC_ID_i;
-
 // IF/ID
 wire [31:0] PC_IF_o, inst_IF_o;
 wire [31:0] PC_ID_i, inst_ID_i;
+
+assign PC_debug = PC_ID_i;
 
 // ID/EX
 wire [31:0] dataR1_ID_o, dataR2_ID_o;

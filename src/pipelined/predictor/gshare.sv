@@ -42,6 +42,9 @@ module gshare #(
   always @(posedge clk or negedge reset_n) begin
     if(~reset_n) begin
       pattern <= {PATTERN_WIDTH{1'b0}};
+      for(int i = 0; i < 2**PATTERN_WIDTH; i+=1) begin
+        bht[i] <= '0;
+      end
     end else begin
       prev_pattern_ID <= pattern;
       prev_pattern_EX <= prev_pattern_ID;
